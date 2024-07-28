@@ -14,10 +14,12 @@
   tasks:
     - name: Download Nexus
       get_url:
-        url: https://download.sonatype.com/nexus/3/nexus-3.70.1-02-java8-unix.tar.gz
+        url: https://download.sonatype.com/nexus/3/latest-unix.tar.gz
         dest: /opt/
-    - name: Untar Nexus installer
-      unarchive:
-        src: /opt/nexus-3.70.1-02-java8-unix.tar.gz
-        dest: /opt/
-        remote_src: yes
+      register: downnload_result
+      debug: msg={{download_result}}
+    #- name: Untar Nexus installer
+      #unarchive:
+        #src: /opt/nexus-3.70.1-02-java8-unix.tar.gz
+        #dest: /opt/
+        #remote_src: yes
