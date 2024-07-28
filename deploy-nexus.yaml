@@ -22,3 +22,12 @@
         src: "{{download_result.dest}}"
         dest: /opt/
         remote_src: yes
+    - name: Find nexus folder name
+      find:
+        paths: /opt/
+        pattern: "nexus-*"
+        file_type: directory
+      register: find_result
+    - debug: msg={{find_result}}
+    #- name: Rename nexus folder
+      #shell: mv 
