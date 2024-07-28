@@ -19,3 +19,9 @@
     - name: Install dependencies
       npm:
         path: /root/package/package
+    - name: Start the application
+      command:
+        chdir: /root/package/package/
+        cmd: node server 
+      async: 1000
+      poll: 0
