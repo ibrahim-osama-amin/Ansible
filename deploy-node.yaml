@@ -16,3 +16,6 @@
       unarchive:
         src: /root/gitlab/nodejs/my-app/my-app-0.1.0.tgz
         dest: /root/package
+    - name: Install dependencies
+      npm:
+        path: /root/package/package
