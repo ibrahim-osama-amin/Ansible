@@ -26,6 +26,6 @@
       async: 1000
       poll: 0
     - name: ensure app is running
-      shell: ps aux | grep node | grep -v grep
+      shell: ps aux | grep node
       resgister: app_status
     - debug: msg= {{app_status}}
