@@ -1,8 +1,6 @@
 ---
 - name: Configure nginx web server
   hosts: ubuntu
-  become: true
-  become_method: sudo
   tasks:
   - name: install nginx server
     apt:
