@@ -16,7 +16,7 @@
       get_url:
         url: https://download.sonatype.com/nexus/3/latest-unix.tar.gz
         dest: /opt/
-      register: downnload_result
+      register: download_result
     - debug: msg={{download_result}}
     #- name: Untar Nexus installer
       #unarchive:
