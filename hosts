@@ -10,7 +10,7 @@ ansible_user=root
 
 [ubuntu:vars]
 ansible_ssh_private_key_file=/root/.ssh/ubuntu
-ansible_user=ibrahim
+ansible_user=root
 
 [ec2]
 ec2-35-180-230-183.eu-west-3.compute.amazonaws.com
