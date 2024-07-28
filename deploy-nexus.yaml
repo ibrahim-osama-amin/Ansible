@@ -17,9 +17,8 @@
         url: https://download.sonatype.com/nexus/3/latest-unix.tar.gz
         dest: /opt/
       register: download_result
-    - debug: msg={{download_result}}
-    #- name: Untar Nexus installer
-      #unarchive:
-        #src: /opt/nexus-3.70.1-02-java8-unix.tar.gz
-        #dest: /opt/
-        #remote_src: yes
+    - name: Untar Nexus installer
+      unarchive:
+        src: "{{download_result.dest}}"
+        dest: /opt/
+        remote_src: yes
