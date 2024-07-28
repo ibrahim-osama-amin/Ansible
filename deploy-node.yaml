@@ -2,22 +2,22 @@
 - name: Install node and npm
   hosts: ubuntu
   tasks:
-  - name: Update apt repo and cache
-    apt: update_cache=yes force_apt_get=yes cache_valid_time=3600 
-  - name: Install nodejs and npm
-    apt:
-      pkg:
-        - nodejs
-        - npm
+    - name: Update apt repo and cache
+      apt: update_cache=yes force_apt_get=yes cache_valid_time=3600 
+    - name: Install nodejs and npm
+      apt:
+        pkg:
+          - nodejs
+          - npm
 - name: Deploy nodejs App.
   hosts: ubuntu
   tasks:
-  - name: Copy nodejs folder to a server
-    copy:
-      src: /root/gitlab/nodejs/my-app/my-app-0.1.0.tgz
-      dest: /root/my-app-0.1.0.tgz
-  - name: Unpack the nodejs tar file
-    unarchive:
-      src: /root/my-app-0.1.0.tgz
-      dest: /root/package
-      remote_src: yes
+    - name: Copy nodejs folder to a server
+      copy:
+        src: /root/gitlab/nodejs/my-app/my-app-0.1.0.tgz
+        dest: /root/my-app-0.1.0.tgz
+    - name: Unpack the nodejs tar file
+      unarchive:
+        src: /root/my-app-0.1.0.tgz
+        dest: /root/package
+        remote_src: yes
