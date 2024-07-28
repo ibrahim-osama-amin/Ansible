@@ -1,6 +1,12 @@
 ---
 - name: Configure nginx web server
-  hosts: all
+  hosts: ubuntu
   tasks:
   - name: install nginx server
-    dnf: 
+    apt:
+      name: nginx
+      state: latest
+  - name: start installed nginux
+    service:
+      name: nginx
+      state: started
