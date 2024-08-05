@@ -5,7 +5,9 @@
   tasks:
     - name: Install docker
       yum: 
-        name: docker
+        name:
+          - docker
+          - libxcrypt-compat
         update_cache: yes
         state: present
 
