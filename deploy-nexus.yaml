@@ -66,10 +66,10 @@
   hosts: ubuntu
   tasks:
     - name: Set run_as_user nexus
-      blockinfile:
+      lineinfile:
         path: /opt/nexus/bin/nexus.rc
-        block: |
-          run_as_user="nexus"
-          
+        regexp: '^#run_as_user=""'
+        line: run_as_user="nexus"
+
 
       
