@@ -12,26 +12,30 @@
 - name: Download and unpack Nexus installer
   hosts: ubuntu
   tasks:
+    - name: Check nexus folder stats
+      stat:
+        path: /opt/nexus
+      register: stat_result
+
     - name: Download Nexus
       get_url:
         url: https://download.sonatype.com/nexus/3/latest-unix.tar.gz
         dest: /opt/
       register: download_result
+      when: not stat_result.stat.exists
     - name: Untar Nexus installer
       unarchive:
         src: "{{download_result.dest}}"
         dest: /opt/
         remote_src: yes
+        when: not stat_result.stat.exists
     - name: Find nexus folder name
       find:
         paths: /opt/
         pattern: "nexus-*"
         file_type: directory
       register: find_result
-    - name: Check nexus folder stats
-      stat:
-        path: /opt/nexus
-      register: stat_result
+
     - name: Rename nexus folder
       shell: mv {{find_result.files[0].path}} /opt/nexus
       when: not stat_result.stat.exists
