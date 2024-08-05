@@ -45,8 +45,16 @@
 
 - name: Start docker containers from docker-compose file
   hosts: ec2
+  vars_prompt:
+    - name: docker_password
+      prompt: Enter the docker registry password please 
   tasks:
     - name: Copy Docker compose
       copy: 
-        src: 
-        dest:  
+        src: /root/ansible/Ansible/docker-compose.yaml
+        dest: /home/ec2-user  
+    - name: Docker login
+      docker_login:
+        registry_url: https://index.docker.io/v1
+        username: ibrahimosama
+        password: "{{password}}"
