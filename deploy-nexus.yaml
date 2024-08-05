@@ -61,4 +61,15 @@
         owner: nexus
         group: nexus
         recurse: yes
+
+- name: Start Nexus with Nexus user
+  hosts: ubuntu
+  tasks:
+    - name: Set run_as_user nexus
+      blockinfile:
+        path: /opt/nexus/bin/nexus.rc
+        block: |
+          run_as_user="nexus"
+          
+
       
