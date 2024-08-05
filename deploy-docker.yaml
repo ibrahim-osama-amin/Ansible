@@ -57,4 +57,4 @@
       docker_login:
         registry_url: https://index.docker.io/v1
         username: ibrahimosama
-        password: "{{password}}"
+        password: "{{docker_password}}"
