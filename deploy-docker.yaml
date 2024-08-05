@@ -47,4 +47,6 @@
   hosts: ec2
   tasks:
     - name: Pull redis
-      command: docker pull redis 
+      docker_image:
+        name: redis
+        source: pull
