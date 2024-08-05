@@ -3,7 +3,7 @@
   hosts: ec2
   become: yes
   tasks:
-    - name: Install docker
+    - name: Install docker and libxcrypt-compat
       yum: 
         name:
           - docker
@@ -20,3 +20,12 @@
         url: https://github.com/docker/compose/releases/download/1.26.0/docker-compose-{{lookup('pipe','uname -s')}}-{{lookup('pipe','uname -m')}}
         dest: /usr/local/bin/docker-compose
         mode: +x
+
+- name: Start docker 
+  hosts: ec2
+  become: yes
+  tasks:
+    - name: start docker demon 
+      systemd:
+        name: docker
+        state: started
