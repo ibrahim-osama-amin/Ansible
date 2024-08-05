@@ -45,9 +45,8 @@
 
 - name: Start docker containers from docker-compose file
   hosts: ec2
-  vars_prompt:
-    - name: docker_password
-      prompt: Enter the docker registry password please 
+  vars_files:
+    - project-vars
   tasks:
     - name: Copy Docker compose
       copy: 
