@@ -48,5 +48,5 @@
   tasks:
     - name: Pull redis
       docker_image:
-        name: redis
+        name: nginx
         source: pull
