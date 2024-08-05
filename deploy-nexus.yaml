@@ -79,5 +79,14 @@
     - name: Run Nexus
       command: /opt/nexus/bin/nexus start
 
-
-      
+- name: Verify Nexus is running
+  hosts: ubuntu
+  tasks:
+    - name: Check with PS command 
+      shell: ps -aux | grep nexus | grep -v grep 
+      register: app_status
+    - debug: msg = {{app_status.stdout_lines}}
+    - name: Check with netstat 
+      shell: netsat -plnt 
+      register: app_status
+    - debug: msg = {{app_status.stdout_lines}}
