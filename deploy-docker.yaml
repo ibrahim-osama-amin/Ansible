@@ -3,7 +3,7 @@
   hosts: ec2
   become: yes
   tasks:
-    - name: Install docker and libxcrypt-compat
+    - name: Ensure docker and libxcrypt-compat are installed
       yum: 
         name:
           - docker
@@ -25,7 +25,26 @@
   hosts: ec2
   become: yes
   tasks:
-    - name: start docker demon 
+    - name: Ensure docker is running 
       systemd:
         name: docker
         state: started
+
+
+- name: Add ec2-user to docker group 
+  hosts: ec2
+  become: yes
+  tasks:
+    - name: Add ec2-user to docker group 
+      user: 
+        name: ec2-user
+        groups: docker 
+        append: yes 
+    - name: Reconnect to server session 
+      meta: reset_connection
+
+- name: test docker pull 
+  hosts: ec2
+  tasks:
+    - name: Pull redis
+      command: docker pull redis 
