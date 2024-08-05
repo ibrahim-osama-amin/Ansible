@@ -58,5 +58,5 @@
         username: ibrahimosama
         password: "{{docker_password}}"
     - name: Start containers from compose 
-      docker_compose:
+      community.docker.docker_compose_v2:
         project_src: /home/ec2-user
