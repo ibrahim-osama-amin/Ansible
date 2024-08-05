@@ -13,8 +13,7 @@ ansible_ssh_private_key_file=/root/.ssh/ubuntu
 ansible_user=root
 
 [ec2]
-ec2-35-180-230-183.eu-west-3.compute.amazonaws.com
-ec2-52-47-110-31.eu-west-3.compute.amazonaws.com
+ec2-13-39-150-157.eu-west-3.compute.amazonaws.com
 
 [ec2:vars]
 ansible_ssh_private_key_file=/root/.ssh/paris-eu-west-3.pem
