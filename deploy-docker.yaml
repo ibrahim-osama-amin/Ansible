@@ -60,6 +60,4 @@
         password: "{{docker_password}}"
     - name: Start containers from compose 
       ansible.builtin.command:
-        cmd: docker-compose up
-        argv:
-          - -d
+        cmd: docker-compose up -d
