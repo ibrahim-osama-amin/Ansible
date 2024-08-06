@@ -73,7 +73,6 @@
         dest: /home/ec2-user  
     - name: Docker login
       docker_login:
-        registry_url: https://index.docker.io/v1
         username: ibrahimosama
         password: "{{docker_password}}"
     - name: Install docker python module
