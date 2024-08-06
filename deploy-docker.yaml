@@ -10,7 +10,10 @@
           - libxcrypt-compat
         update_cache: yes
         state: present
-
+    - name: Install docker python module
+      pip:
+        name: docker
+  
 - name: Install docker compose
   hosts: ec2
   become: yes
@@ -59,5 +62,5 @@
         username: ibrahimosama
         password: "{{docker_password}}"
     - name: Start containers from compose 
-      ansible.builtin.command:
-        cmd: docker-compose up -d
+      community.docker.docker_compose_v2:
+        project_src: /home/ec2-user
