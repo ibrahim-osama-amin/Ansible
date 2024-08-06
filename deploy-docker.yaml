@@ -64,5 +64,5 @@
       pip:
         name: docker
     - name: Start containers from compose 
-      community.docker.docker_compose_v1:
+      community.docker.docker_compose:
         project_src: /home/ec2-user
