@@ -8,11 +8,10 @@
         name:
           - docker
           - libxcrypt-compat
+          - python3-pip
         update_cache: yes
         state: present
-    - name: Install docker python module
-      pip:
-        name: docker
+
   
 - name: Install docker compose
   hosts: ec2
@@ -61,6 +60,9 @@
         registry_url: https://index.docker.io/v1
         username: ibrahimosama
         password: "{{docker_password}}"
+    - name: Install docker python module
+      pip:
+        name: docker
     - name: Start containers from compose 
       community.docker.docker_compose_v2:
         project_src: /home/ec2-user
