@@ -21,6 +21,7 @@
         dest: /usr/local/bin/docker-compose
         mode: +x
 
+
 - name: Start docker 
   hosts: ec2
   become: yes
@@ -45,6 +46,7 @@
 
 - name: Start docker containers from docker-compose file
   hosts: ec2
+  become: yes
   vars_files:
     - project-vars
   tasks:
