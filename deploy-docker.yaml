@@ -24,7 +24,7 @@
         mode: '0755'
     - name: Download Docker Compose V2 binary
       get_url:
-        url: https://github.com/docker/compose/releases/download/v2.16.0/docker-compose-linux-x86_64
+        url: https://github.com/docker/compose/releases/download/v2.18.0/docker-compose-linux-x86_64
         dest: /usr/local/lib/docker/cli-plugins/docker-compose
         mode: '0755'
     - name: Make Docker Compose binary executable
