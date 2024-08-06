@@ -59,5 +59,7 @@
         username: ibrahimosama
         password: "{{docker_password}}"
     - name: Start containers from compose 
-      community.docker.docker_compose_v2:
-        project_src: /home/ec2-user
+      ansible.builtin.command:
+        cmd: docker-compose up
+        argv:
+          - -d
