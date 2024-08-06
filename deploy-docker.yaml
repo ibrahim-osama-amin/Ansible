@@ -46,7 +46,6 @@
 
 - name: Start docker containers from docker-compose file
   hosts: ec2
-  become: yes
   vars_files:
     - project-vars
   tasks:
