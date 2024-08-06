@@ -62,7 +62,9 @@
         password: "{{docker_password}}"
     - name: Install docker python module
       pip:
-        name: docker
+        name: 
+        - docker
+        - docker-compose
     - name: Start containers from compose 
       community.docker.docker_compose:
         project_src: /home/ec2-user
