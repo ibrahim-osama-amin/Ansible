@@ -10,7 +10,6 @@
         state: present  
 
     - name: Ensure nginx deployment with its service are running
-      become: yes
       community.kubernetes.k8s:
         src: /root/ansible/Ansible/nginx-deployment.yaml
         state: present
