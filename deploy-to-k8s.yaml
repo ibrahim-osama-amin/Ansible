@@ -13,4 +13,5 @@
       community.kubernetes.k8s:
         src: /root/ansible/Ansible/nginx-deployment.yaml
         state: present
+        kubeconfig: /home/kube/.kube/config
         namespace: my-app
