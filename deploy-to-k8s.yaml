@@ -11,4 +11,6 @@
 
     - name: Deploy nginx 
       kubernetes.core.k8s:
-        
+        src: nginx-deployment.yaml
+        state: present
+        namespace: my-app
