@@ -11,7 +11,7 @@
 
     - name: Ensure nginx deployment with its service are running
       community.kubernetes.k8s:
-        src: /root/ansible/Ansible/k8s_deployments/nginx-deployment.yaml
+        src: /root/ansible/Ansible/k8s_deployments/nginx.yaml
         state: present
         kubeconfig: /home/kube/.kube/config
         namespace: my-app
