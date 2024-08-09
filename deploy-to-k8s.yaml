@@ -11,6 +11,6 @@
 
     - name: Ensure nginx deployment with its service are running
       k8s:
-        src: nginx-deployment.yaml
+        src: /root/ansible/Ansible/nginx-deployment.yaml
         state: present
         namespace: my-app
