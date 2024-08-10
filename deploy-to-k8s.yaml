@@ -3,14 +3,14 @@
   hosts: local
   tasks:
     - name: Ensure my-app namespace is present 
-      community.kubernetes.k8s:
+      kubernetes.core:
         name: my-app
         api_version: v1
         kind: Namespace
         state: present  
 
     - name: Ensure nginx deployment with its service are running
-      community.kubernetes.k8s:
+      kubernetes.core:
         src: /root/ansible/Ansible/k8s_deployments/nginx.yaml
         state: present
         kubeconfig: /home/kube/.kube/config
